@@ -1,0 +1,24 @@
+# docker-compose.yml
+version: "3.8"
+
+services:
+  orion:
+    image: fiware/orion
+    ports:
+      - "1026:1026"
+    depends_on:
+      - mongo
+    command: -dbhost mongo
+    networks:
+      - fiware
+
+  mongo:
+    image: mongo:4.2
+    ports:
+      - "27017:27017"
+    networks:
+      - fiware
+
+networks:
+  fiware:
+    driver: bridge
