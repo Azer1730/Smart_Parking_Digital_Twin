@@ -1,0 +1,25 @@
+# sensor_simulator.py
+import requests
+import time
+import random
+
+ORION_URL = "http://localhost:1026/v2/entities"
+HEADERS = {'Content-Type': 'application/json'}
+
+def update_parking_spot(spot_id, status):
+    data = {
+        "id": spot_id,
+        "type": "ParkingSpot",
+        "occupied": {
+            "type": "Boolean",
+            "value": status
+        }
+    }
+    requests.post(ORION_URL, json=data, headers=HEADERS)
+
+if __name__ == "__main__":
+    while True:
+        for i in range(1, 6):  # 5 parking spots
+            occupied = random.choice([True, False])
+            update_parking_spot(f"Spot{i}", occupied)
+        time.sleep(5)
