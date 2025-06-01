@@ -1,0 +1,10 @@
+curl -X POST http://localhost:1026/v2/entities \
+  -H "Content-Type: application/json" \
+  -d '{
+        "id": "Spot1",
+        "type": "ParkingSpot",
+        "occupied": {
+          "type": "Boolean",
+          "value": false
+        }
+      }'
