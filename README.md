@@ -27,6 +27,16 @@ Real-time parking lot monitoring using **FIWARE**, **Docker**, and virtual IoT s
 - 🧪 Python 3 for simulator script  
 
 ---
+# Clone the repo
+git clone https://github.com/yourusername/digital-twin-smart-parking.git
+cd digital-twin-smart-parking
+
+# Start services
+docker-compose up -d
+
+# Start simulator
+python sensor_simulator.py
+
 
 ## 🚀 Quick Start
 
